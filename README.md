@@ -7,60 +7,225 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About project
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This project was build with Laravel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- PHP 8
+- Laravel 11
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Start Project
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Before start project make sure that install Laravel, PHP and Composer in your system.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. Clone the project
+2. ``` cd challenge-talentpitch```
+3. Make migrations ``` php artisan migrate```
+4. Start the project with ``` php artisan serve```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Endpoints
 
-## Laravel Sponsors
+The host has prefix: "/api" and is versioned, so the complete host is: 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### "/api/v1/"
 
-### Premium Partners
+### Users:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+#### Get all users:
 
-## Contributing
+This method return one collections of all users in the database
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+*Method:* GET
+*Endpoints:* /users
 
-## Code of Conduct
+#### Get specific user:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+This method return specific user by id
 
-## Security Vulnerabilities
+*Method:* GET
+*Endpoints:* /users/{id}
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### Create new user:
 
+This method create a new user.
+
+*Method:* POST
+*Endpoints:* /users
+
+| Field     | Type   | Required? | Description                  |
+|-----------|--------|-----------|------------------------------|
+| name      | String | YES       | User name                    |
+| id        | Number | YES       | The user id                  |
+| programId | Number | NO        | The program id it belongs to |
+
+#### Update user:
+
+This method update specific user
+
+*Method:* PUT
+*Endpoints:* /users/{id}
+
+| Field      | Type   | Required? | Description                  |
+|------------|--------|-----------|------------------------------|
+| name       | String | NO        | User name                    |
+| programsId | Number | NO        | The program id it belongs to |
+
+#### Delete user:
+
+This method destroy specific user
+
+*Method:* DELETE
+*Endpoints:* /users/{id}
+
+### Challenges:
+
+#### Get all challenges:
+
+This method return one collections of all challenges in the database
+
+*Method:* GET
+*Endpoints:* /challenges
+
+#### Get specific challenge:
+
+This method return specific challenge by id
+
+*Method:* GET
+*Endpoints:* /challenges/{id}
+
+#### Create new challenge:
+
+This method create a new challenge.
+
+*Method:* POST
+*Endpoints:* /challenges
+
+| Field     | Type   | Required? | Description                  |
+|-----------|--------|-----------|------------------------------|
+| name      | String | YES       | Challenge name               |
+| id        | Number | YES       | The challenge id             |
+| programId | Number | NO        | The program id it belongs to |
+
+#### Update challenge:
+
+This method update specific challenge
+
+*Method:* PUT
+*Endpoints:* /challenges/{id}
+
+| Field      | Type   | Required? | Description                  |
+|------------|--------|-----------|------------------------------|
+| name       | String | NO        | Challenge name               |
+| programsId | Number | NO        | The program id it belongs to |
+
+#### Delete challenge:
+
+This method destroy specific challenge
+
+*Method:* DELETE
+*Endpoints:* /challenges/{id}
+
+### Companies:
+
+#### Get all companies:
+
+This method return one collections of all companies in the database
+
+*Method:* GET
+*Endpoints:* /company
+
+#### Get specific company:
+
+This method return specific company by id
+
+*Method:* GET
+*Endpoints:* /company/{id}
+
+#### Create new company:
+
+This method create a new company.
+
+*Method:* POST
+*Endpoints:* /company
+
+| Field     | Type   | Required? | Description                  |
+|-----------|--------|-----------|------------------------------|
+| name      | String | YES       | Company name                 |
+| id        | Number | YES       | The company id               |
+| programId | Number | NO        | The program id it belongs to |
+
+#### Update company:
+
+This method update specific company
+
+*Method:* PUT
+*Endpoints:* /company/{id}
+
+| Field      | Type   | Required? | Description                  |
+|------------|--------|-----------|------------------------------|
+| name       | String | NO        | Company name                 |
+| programsId | Number | NO        | The program id it belongs to |
+
+#### Delete company:
+
+This method destroy specific company
+
+*Method:* DELETE
+*Endpoints:* /company/{id}
+
+### Programs:
+
+#### Get all programs:
+
+This method return one collections of all programs in the database
+
+*Method:* GET
+*Endpoints:* /programs
+
+#### Get specific program:
+
+This method return specific program by id
+
+*Method:* GET
+*Endpoints:* /programs/{id}
+
+#### Create new program:
+
+This method create a new program.
+
+*Method:* POST
+*Endpoints:* /company
+
+| Field       | Type   | Required? | Description                    |
+|-------------|--------|-----------|--------------------------------|
+| name        | String | YES       | Program name                   |
+| id          | Number | YES       | The program id                 |
+| userId      | Number | NO        | The user id it belongs to      |
+| companyId   | Number | NO        | The company id it belongs to   |
+| challengeId | Number | NO        | The challenge id it belongs to |
+
+#### Update program:
+
+This method update specific program
+
+*Method:* PUT
+*Endpoints:* /programs/{id}
+
+| Field      | Type   | Required? | Description                  |
+|------------|--------|-----------|------------------------------|
+| name       | String | NO        | Program name                 |
+| programsId | Number | NO        | The program id it belongs to |
+| userId      | Number | NO        | The user id it belongs to      |
+| companyId   | Number | NO        | The company id it belongs to   |
+| challengeId | Number | NO        | The challenge id it belongs to |
+
+#### Delete programs:
+
+This method destroy specific programs
+
+*Method:* DELETE
+*Endpoints:* /programs/{id}
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
